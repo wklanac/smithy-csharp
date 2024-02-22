@@ -1,0 +1,17 @@
+| Smithy | .NET |
+| ---- | ---- |
+| blob | byte[] (except for streaming data, this will need a different type) |
+| boolean | bool |
+| string | String |
+| byte | byte |
+| short | short |
+| integer | int |
+| long | long |
+| float | float |
+| double | double |
+| bigInteger | System.Numerics.BigInteger |
+| bigDecimal | The .NET runtime does not provide support for bigDecimal. Requests to add support for this [do not seem to have much traction](https://github.com/dotnet/runtime/issues/20681) and when this was discussed in the past [it was closed as unactionable](https://github.com/dotnet/runtime/issues/20681).<br><br>Since there are no plans to provide this, I think the only available options are to defer evaluation to a user input. |
+| timestamp | DateTime derived.<br><br>Note from the smithy spec: "The format of a timestamp MUST NOT have any effect on the types exposed by tooling to represent a timestamp value."<br><br>DateTime's resolution is 0.1 ms which is strictly less than 1 ms. Precision of .NET's DateTime used to be 1 ms. Since smithy's level of precision is lower than that provided by .NET's DateTime, we have a few different options of handling this. I would consider raw use of DateTime noncompliant with the smithy spec judging by the wording, but it's possible that it's actually fine to have a higher level of precision so long as we serialize / deserialize in accordance with the smithy spec.<br><br>I think the correct way to handle this is to provide a wrapper around DateTime to be used by any relevant generated service code which implicitly handles the precision conversion. Transforming at the boundary of service calls is not enough as we must keep in mind non-service-boundary outputs of some code generators may also reference the type defined in the model (e.g. data access objects). And what I described is actually just another way of referring to the deserialization / serialization of timestamp data for service calls and responses, not use of the time data itself, which is what we are interested in. |
+| document | There is no great way to provide support for this until there is a stronger push to provide support for tagged unions in C# in the runtime, [as multiple people tracking this issue have commented as much as that it will have very poor performance if they attempt to do some workaround](https://github.com/dotnet/csharplang/issues/7544).<br><br>For now the best we can do is emulate the work done for Kotlin, and attempt to provide support for this through records with inheritance, with specific accessors for each case, and ToString + conversion support between subtypes.<br><br>Need to make a design decision here on how and/or whether we should coalesce numeric inputs (integer and floating point) to a smaller set of types as we don't have the numeric type hierarchy in .NET that is present in Kotlin. |
+| enum | These would be best represented in .NET as classes with public static string constant members containing the possible values and an instance variable containing the actual value.<br><br>Remember: smithy enums must be open so clients MUST not reject unknown enum values, you will need to find out how to handle this. |
+| intEnum | Enum type in .NET |
