@@ -1,0 +1,201 @@
+{
+  "main": {
+    "id": "e0238ab445aaacea",
+    "type": "split",
+    "children": [
+      {
+        "id": "a992b69b2633be32",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "684f8d4985049dff",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Symbol Imports and Namespaces/CSharp Using Directives.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f135b5e9efab4a8f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Symbol Imports and Namespaces/CSharp Using Directives.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "cb2c60d214b2b0e0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Writer and Formatting Handling/Documentation, Comments, and Formatting.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "2b6742af7e125fbd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Writer and Formatting Handling/Documentation, Comments, and Formatting.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e74b54471dafec83",
+    "type": "split",
+    "children": [
+      {
+        "id": "002fae234ead9529",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d5f099b50d557502",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "6ba5bd07b1a8484a",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "bbae9827ad6e3788",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "1558fddeb6b2c4b0",
+    "type": "split",
+    "children": [
+      {
+        "id": "658f15edc22d50d4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5a02e0c9f14b044c",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Writer and Formatting Handling/Documentation, Comments, and Formatting.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "5856f002aaeb83fa",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Writer and Formatting Handling/Documentation, Comments, and Formatting.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "c7b05663bb9b22ca",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "1765be1c860e8fd3",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Writer and Formatting Handling/Documentation, Comments, and Formatting.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "2b6742af7e125fbd",
+  "lastOpenFiles": [
+    "Symbol Imports and Namespaces/CSharp Using Directives.md",
+    "Shape Types/Simple Types.md",
+    "Shape Types/Aggregate Types.md",
+    "Runtime/Components.md",
+    "Writer and Formatting Handling/Documentation, Comments, and Formatting.md",
+    "Writer and Formatting Handling/CSharpWriter APIs.md",
+    "Runtime/SerDe.md",
+    "2024-05-29.md",
+    "Runtime/Structure.md",
+    "Symbol Imports and Namespaces/Control Flow For Handling Namespace Conflicts.md",
+    "Runtime",
+    "Writer and Formatting Handling"
+  ]
+}

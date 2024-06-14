@@ -3,7 +3,7 @@ plugins {
 }
 
 allprojects {
-    group = "software.smithycommunity.dotnet"
+    group = "software.smithycommunity.csharp"
     version = "0.0.1"
 
     repositories {

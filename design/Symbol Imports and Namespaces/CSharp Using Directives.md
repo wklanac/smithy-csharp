@@ -1,3 +1,4 @@
+# Summary
 There are a few design issues we have to consider when generating "using" statements for and working with namespaces in C#. C# imports serve a variety of purposes including:
 - Taking classes, interfaces, structs, enums, delegates defined in one namespace and making them directly accessible within another, without having to specify the full class name path
 - Creating aliases for specific types in a namespace
@@ -12,6 +13,47 @@ However, because of the above there are multiple ways to bring in dependencies, 
 - Has a lineage that branches from the target: we must either qualify the namespace starting with the level at which the namespace lineages diverged, or import the fully qualified namespace
 	- E.g. - if our target will be in namespace A.B.C.F and the symbol is found in namespace A.B.G.Q and is called P, to use P in the target, we must either specify G.Q.P or provide a "using A.B.G.Q;" statement and directly use P in the target
 
-You'll notice we've forgotten something important - we've neglected to talk about how we will handle aliasing and when we will endeavor to use aliasing. I think we should only use aliasing in situations where we can detect that there is a conflict with in-scope naming caused by importing types with two different namespace paths in such a way that it would put an ambiguous name for both in the same namespace, meaning the user would have to fully qualify which they want to use. So, prior to spitting out the full set of using directives for a file, the implementing class should check for internal conflicts and resolve these using aliases.
+You'll notice we've forgotten something important - we've neglected to talk about how we will handle aliasing and when we will endeavor to use aliasing. I think we should only use aliasing in situations where we can detect that there is a conflict with in-scope naming caused by importing types with two different namespace paths in such a way that it would put an ambiguous name for both in the same namespace, meaning the user wAbove should be enough for basic client generation.ould have to fully qualify which they want to use. So, prior to spitting out the full set of using directives for a file, the implementing class should check for internal conflicts and resolve these using aliases.
 
 There is also the situation where we have two dependencies with the exact same namespace and type name. We cannot use using directives to resolve these, and instead will need extern aliasing. We will cross that bridge once we get to it, and until then we will explicitly check and fail if this event occurs as it could be treated as similar to a java classpath conflict issue. We shouldn't be expected to provide tooling to fix this.
+
+# Appendix: Cases of Source and Target Namespace and Resulting Using Directives
+## Example 1
+
+source: a.b
+target: c.d.e
+output: a.b
+
+diverged index: 0
+
+## Example 2
+
+source: a.b
+target: a.b.c
+output: ""
+
+diverged index: NOT EXIST
+
+## Example 3
+
+source: a.b.c
+target: a.b
+output: c
+
+diverged index: NOT EXIST
+
+## Example 4
+
+source: a.b.c
+target: d.e
+output: a.b.c
+
+diverged index: 0
+
+## Example 5
+
+source: a.b.d
+target: a.b.c
+output: d
+
+diverged index: 2

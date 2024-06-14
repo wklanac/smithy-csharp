@@ -1,2 +1,2 @@
-rootProject.name = "smithy-dotnet"
+rootProject.name = "smithy-csharp"
 include("codegen-core")
